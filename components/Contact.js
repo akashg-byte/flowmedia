@@ -5,7 +5,7 @@ import styles from './Contact.module.css';
 const socials = [
   { label: 'Instagram', icon: '📸', href: 'https://www.instagram.com/its_mano_off' },
   { label: 'YouTube', icon: '▶️', href: 'https://youtube.com/@flowmedia' },
-  { label: 'WhatsApp', icon: '💬', href: 'https://wa.me/919025815736' },
+  { label: 'WhatsApp', icon: '💬', href: 'https://wa.me/919025805736' },
 ];
 
 export default function Contact() {
