@@ -3,9 +3,9 @@ import { useEffect, useRef, useState } from 'react';
 import styles from './Contact.module.css';
 
 const socials = [
-  { label: 'Instagram', icon: '📸', href: '#' },
-  { label: 'YouTube', icon: '▶️', href: '#' },
-  { label: 'WhatsApp', icon: '💬', href: '#' },
+  { label: 'Instagram', icon: '📸', href: 'https://www.instagram.com/its_mano_off' },
+  { label: 'YouTube', icon: '▶️', href: 'https://youtube.com/@flowmedia' },
+  { label: 'WhatsApp', icon: '💬', href: 'https://wa.me/919025815736' },
 ];
 
 export default function Contact() {
@@ -81,21 +81,26 @@ export default function Contact() {
                 <p>Thanks for reaching out. I&apos;ll get back to you within 24 hours.</p>
               </div>
             ) : (
-              <form className={styles.form} onSubmit={handleSubmit}>
+              <form 
+                className={styles.form} 
+                action="https://formspree.io/f/manokaredit@gmail.com" 
+                method="POST"
+                onSubmit={() => setSent(true)}
+              >
                 <h3 className={styles.formTitle}>Send a Message</h3>
                 <div className={styles.formRow}>
                   <div className={styles.formGroup}>
                     <label htmlFor="contact-name">Name</label>
-                    <input id="contact-name" type="text" placeholder="Your name" required />
+                    <input id="contact-name" name="name" type="text" placeholder="Your name" required />
                   </div>
                   <div className={styles.formGroup}>
                     <label htmlFor="contact-email">Email</label>
-                    <input id="contact-email" type="email" placeholder="your@email.com" required />
+                    <input id="contact-email" name="email" type="email" placeholder="your@email.com" required />
                   </div>
                 </div>
                 <div className={styles.formGroup}>
                   <label htmlFor="contact-service">Service Needed</label>
-                  <select id="contact-service">
+                  <select id="contact-service" name="service">
                     <option value="">Select a service...</option>
                     <option>Short Form Video Editing</option>
                     <option>Long Form / Candid Video</option>
@@ -107,7 +112,7 @@ export default function Contact() {
                 </div>
                 <div className={styles.formGroup}>
                   <label htmlFor="contact-message">Message</label>
-                  <textarea id="contact-message" rows={5} placeholder="Tell me about your project..." required />
+                  <textarea id="contact-message" name="message" rows={5} placeholder="Tell me about your project..." required />
                 </div>
                 <button type="submit" className={styles.submitBtn}>Send Message →</button>
               </form>
