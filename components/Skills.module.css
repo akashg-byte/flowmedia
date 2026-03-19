@@ -1,0 +1,155 @@
+.section {
+  padding: 120px 0;
+  background: var(--bg-primary);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.profileCol {
+  position: sticky;
+  top: 100px;
+}
+
+.profileFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-glass);
+  margin-bottom: 20px;
+}
+
+.profileOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 10, 15, 0.6), transparent 60%);
+}
+
+.specialties {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.specialty {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: var(--transition);
+}
+
+.specialty:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-2px);
+}
+
+.specialtyLabel {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.specialtyDesc {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.skillsCol {}
+
+.bars {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.barItem {}
+
+.barTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.barInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.barIcon {
+  font-size: 1.2rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(201, 168, 76, 0.08);
+  border-radius: var(--radius-sm);
+}
+
+.barName {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.barDesc {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.barPct {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+.barTrack {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  width: 0;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue-light));
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.anim-fade-up.visible .barFill {
+  width: var(--width);
+}
+
+/* Trigger bar fill when parent is visible */
+:global(.visible) .barFill {
+  width: var(--width);
+}
+
+@media (max-width: 1024px) {
+  .layout { grid-template-columns: 1fr; gap: 60px; }
+  .profileCol { position: static; }
+  .profileFrame { max-width: 400px; }
+}
+
+@media (max-width: 640px) {
+  .specialties { grid-template-columns: 1fr; }
+  .section { padding: 80px 0; }
+}
